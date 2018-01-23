@@ -47,5 +47,17 @@ namespace GhibliAPITest.Models
             return response.Data;
         }
 
+        public GhibliSearchResults SearchFilms(string term)
+        {
+            IRestClient client = new RestClient(baseUrl);
+
+            var request = new RestRequest("search");
+
+            request.AddQueryParameter("term", term);
+
+            var response = client.Get<GhibliSearchResults>(request);
+
+            return response.Data;
+        }
     }
 }

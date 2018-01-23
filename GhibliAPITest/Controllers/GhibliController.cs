@@ -36,5 +36,15 @@ namespace GhibliAPITest.Controllers
 
             return Ok(list);
         }
+
+        [HttpGet]
+
+        public IHttpActionResult Search(string term)
+        {
+            var service = new GhibliService();
+            var filmsList = service.SearchFilms(term);
+
+            return Ok(filmsList);
+        }
     }
 }
